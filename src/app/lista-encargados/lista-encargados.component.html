@@ -1,0 +1,31 @@
+<h2 class="text-center">Lista de Encargados</h2>
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Cédula</th>
+      <th>Email</th>
+      <th>Teléfono</th>
+      <th>Dirección</th>
+      <th>Relación</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let encargado of encargados">
+      <td>{{ encargado.nombre }}</td>
+      <td>{{ encargado.apellido }}</td>
+      <td>{{ encargado.cedula }}</td>
+      <td>{{ encargado.email }}</td>
+      <td>{{ encargado.telefono }}</td>
+      <td>{{ encargado.direccion }}</td>
+      <td>{{ encargado.relacion }}</td>
+      <td>
+        <button (click)="actualizarEncargado(encargado.id)" class="btn btn-info">Editar</button>
+        <button (click)="eliminarEncargado(encargado.id)" class="btn btn-danger" style="margin-left: 10px">Eliminar</button>
+        <button (click)="verDetallesDelEncargado(encargado.id)" class="btn btn-primary" style="margin-left: 10px">Detalles</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

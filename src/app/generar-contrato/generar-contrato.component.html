@@ -1,0 +1,8 @@
+<div class="container mt-4">
+  <h2 class="text-center">Generar Contrato</h2>
+  <button (click)="generarContrato()" class="btn btn-primary btn-block">Generar Contrato</button>
+  <div *ngIf="contratoGenerado" class="mt-3">
+    <p>Contrato generado con éxito.</p>
+    <button (click)="descargarContrato()" class="btn btn-success">Descargar Contrato</button>
+  </div>
+</div>

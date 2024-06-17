@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <h2 class="text-center">Lista de Inscripciones</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Alumno</th>
+        <th>Encargado</th>
+        <th>Curso</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let inscripcion of inscripciones">
+        <td>{{ inscripcion.id }}</td>
+        <td>{{ inscripcion.alumnoNombre }} {{ inscripcion.alumnoApellido }}</td>
+        <td>{{ inscripcion.encargadoNombre }} {{ inscripcion.encargadoApellido }}</td>
+        <td>{{ inscripcion.cursoNombre }}</td>
+        <td>{{ inscripcion.estado }}</td>
+        <td>
+          <button (click)="generarContrato(inscripcion.id)" class="btn btn-primary">Generar Contrato</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

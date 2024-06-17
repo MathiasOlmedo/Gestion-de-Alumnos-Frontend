@@ -1,0 +1,114 @@
+<div class="col-md-6 offset-md-3">
+  <h3 class="text-center">Registro de Alumnos</h3>
+  <form (ngSubmit)="onSubmit()" #alumnoForm="ngForm">
+    <div class="form-group">
+      <label>Nombre del Alumno</label>
+      <input type="text"
+             class="form-control"
+             id="nombre"
+             [(ngModel)]="alumno.nombre"
+             name="nombre"
+             required
+             minlength="4"
+             maxlength="10"
+             placeholder="Ingrese su nombre"
+             #nombre="ngModel">
+      <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+        <div *ngIf="nombre.errors?.['required']">
+          Por favor ingrese su nombre.
+        </div>
+        <div *ngIf="nombre.errors?.['minlength']">
+          El nombre debe tener al menos 4 caracteres.
+        </div>
+        <div *ngIf="nombre.errors?.['maxlength']">
+          El nombre no debe exceder los 10 caracteres.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Apellido del Alumno</label>
+      <input type="text"
+             class="form-control"
+             id="apellido"
+             [(ngModel)]="alumno.apellido"
+             name="apellido"
+             required
+             minlength="4"
+             maxlength="10"
+             placeholder="Ingrese su apellido"
+             #apellido="ngModel">
+      <div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+        <div *ngIf="apellido.errors?.['required']">
+          Por favor ingrese su apellido.
+        </div>
+        <div *ngIf="apellido.errors?.['minlength']">
+          El apellido debe tener al menos 4 caracteres.
+        </div>
+        <div *ngIf="apellido.errors?.['maxlength']">
+          El apellido no debe exceder los 10 caracteres.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Email del Alumno o Encargado:</label>
+      <input type="email"
+             class="form-control"
+             id="email"
+             [(ngModel)]="alumno.email"
+             name="email"
+             pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+             required
+             placeholder="Ingrese su correo electrónico"
+             #email="ngModel">
+      <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+        <div *ngIf="email.errors?.['required']">
+          Por favor ingrese su correo electrónico.
+        </div>
+        <div *ngIf="email.errors?.['pattern']">
+          Por favor ingrese un correo electrónico válido.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Cédula del Alumno</label>
+      <input type="text"
+             class="form-control"
+             id="cedula"
+             [(ngModel)]="alumno.cedula"
+             name="cedula"
+             placeholder="Ingrese su número de cédula"
+             #cedula="ngModel">
+    </div>
+    <div class="form-group">
+      <label>Fecha de Nacimiento:</label>
+      <input type="date"
+             class="form-control"
+             id="fechaNacimiento"
+             [(ngModel)]="alumno.fechaNacimiento"
+             name="fechaNacimiento"
+             placeholder="Ingrese su fecha de nacimiento"
+             #fechaNacimiento="ngModel">
+    </div>
+    <div class="form-group">
+      <label>Dirección:</label>
+      <input type="text"
+             class="form-control"
+             id="direccion"
+             [(ngModel)]="alumno.direccion"
+             name="direccion"
+             placeholder="Ingrese su dirección"
+             #direccion="ngModel">
+    </div>
+    <div class="form-group">
+      <label>Teléfono:</label>
+      <input type="text"
+             class="form-control"
+             id="telefono"
+             [(ngModel)]="alumno.telefono"
+             name="telefono"
+             placeholder="Ingrese su número de teléfono"
+             #telefono="ngModel">
+    </div>
+    <button class="btn btn-success" [disabled]="!alumnoForm.valid">Guardar</button>
+  </form>
+</div>
